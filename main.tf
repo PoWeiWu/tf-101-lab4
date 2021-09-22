@@ -50,7 +50,7 @@ resource "google_compute_firewall" "ssh" {
 
 module "gce" {
   source  = "app.terraform.io/terraform-101/gce/gcp"
-  version = "1.0.0"
+  version = "1.0.1"
   # insert required variables here
 
   instance_name = "private-module-created"
