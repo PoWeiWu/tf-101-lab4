@@ -48,6 +48,18 @@ resource "google_compute_firewall" "ssh" {
   target_tags   = ["ssh"]
 }
 
+module "gce" {
+  source  = "app.terraform.io/terraform-101/gce/gcp"
+  version = "1.0.0"
+  # insert required variables here
+
+  instance_name = "private-module-created"
+  network       = google_compute_network.tf_vpc.id
+  project_id    = "tf-lab-life"
+  subnetwork    = google_compute_subnetwork.tf_subnet.id
+  zone          = "asia-east1-a"
+}
+
 #create a gce vm
 # resource "google_compute_instance" "gce" {
 #   name         = var.instance_name
