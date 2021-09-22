@@ -49,29 +49,29 @@ resource "google_compute_firewall" "ssh" {
 }
 
 #create a gce vm
-resource "google_compute_instance" "gce" {
-  name         = var.instance_name
-  machine_type = var.machine_type
-  zone         = "asia-east1-a"
+# resource "google_compute_instance" "gce" {
+#   name         = var.instance_name
+#   machine_type = var.machine_type
+#   zone         = "asia-east1-a"
 
-  boot_disk {
-    initialize_params {
-      image = var.instace_image
-    }
-  }
-  network_interface {
+#   boot_disk {
+#     initialize_params {
+#       image = var.instace_image
+#     }
+#   }
+#   network_interface {
 
-    network    = google_compute_network.tf_vpc.id
-    subnetwork = google_compute_subnetwork.tf_subnet.id
+#     network    = google_compute_network.tf_vpc.id
+#     subnetwork = google_compute_subnetwork.tf_subnet.id
 
-    access_config {
-      // Ephemeral public IP
-    }
-  }
+#     access_config {
+#       // Ephemeral public IP
+#     }
+#   }
 
-  tags = ["ssh"]
+#   tags = ["ssh"]
 
-  depends_on = [
-    google_compute_firewall.ssh
-  ]
-}
+#   depends_on = [
+#     google_compute_firewall.ssh
+#   ]
+# }
