@@ -53,6 +53,7 @@ module "gce" {
   version = "1.0.1"
   # insert required variables here
 
+  machine_type = "e2-medium"
   instance_name = "private-module-created"
   network       = google_compute_network.tf_vpc.id
   project_id    = "tf-lab-life"
