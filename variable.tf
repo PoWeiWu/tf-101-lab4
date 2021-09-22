@@ -1,6 +1,6 @@
 variable "credential" {
-    description = "gcp service account credential"
-    default = ""
+  description = "gcp service account credential"
+  default     = ""
 }
 
 variable "project_id" {
